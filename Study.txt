@@ -1,0 +1,45 @@
+학습:  python train.py --img 640 --batch 16 --epochs 50 --data Wand.yaml --weights yolov5s.pt --device 0
+검증(사진):  python detect.py --source=C:\Users\VisualS2\Desktop\AI_LAB\YOLOv5_Custum_Train\yolov5\TestPlace/test.png --weights=C:\Users\VisualS2\Desktop\AI_LAB\YOLOv5_Custum_Train\yolov5\runs\train\exp\weights/best.pt --img 416 --conf 0.5 --save-txt
+검증(영상): python detect.py --source=C:\Users\VisualS2\Desktop\AI_LAB\YOLOv5_Custum_Train\yolov5\TestPlace/test.mp4 --weights=C:\Users\VisualS2\Desktop\AI_LAB\YOLOv5_Custum_Train\yolov5\runs\train\exp\weights/best.pt --img 416 --conf 0.5 --save-txt
+
+python detect.py --source=C:\Users\VisualS2\Desktop\AI_LAB\Korean-license-plate-Generator\plateTEST.mp4 --weights=C:\Users\VisualS2\Desktop\AI_LAB\Korean-license-plate-Generator\yolov5\runs\train\exp6\weights/best.pt --img 416 --conf 0.5 --save-txt
+
+
+--batch : 배치 크기
+--epochs : epoch 횟수
+--data : 학습에 참조될 yaml file 
+--weights : pre-trained model에 전이학습할 경우 (yolov5s.pt 등을 넣어주면 자동으로 다운로드 됨)
+--name(save-txt) : 학습된 모델의 저장이름
+
+Reference : https://dohyeon.tistory.com/38
+
+
+실행환경:
+
+os: window10 
+python: 3.8
+pytorch: 1.10.0
+cuda: 11.3
+cudnn: 8.2.1 for cuda 11.x
+
+
+실행과정:
+conda create -n yolov5 python=3.8
+
+C:\Users\VisualS2\Desktop\AI_LAB\YOLOv5_Custum_Traindl 이 경로에서 
+@@conda activate yolov5@@ == 가상환경 실행
+
+conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+git clone https://github.com/ultralytics/yolov5
+cd yolov5
+
+
+coco.yaml 수정과정: 
+
+train & val  경로 지정
+nc: 내가 학습시키고자 하는 class 개수
+names: 내가 학습시키고자 하는 class 이름
+
+
+1.5
+타입 1,2번
